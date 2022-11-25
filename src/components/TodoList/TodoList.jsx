@@ -3,7 +3,7 @@ import { todosSelector } from 'redux/todoSlice';
 
 import { Grid, GridItem, Todo, Text } from 'components';
 
-const TodoList = () => {
+export const TodoList = () => {
   const todos = useSelector(todosSelector);
 
   return (
@@ -22,5 +22,3 @@ const TodoList = () => {
     </>
   );
 };
-
-export default TodoList;
