@@ -22,7 +22,7 @@ export const SearchForm = () => {
 
     const todo = {
       id: nanoid(),
-      name: value,
+      text: value,
     };
 
     dispatch(addTodoAction(todo));

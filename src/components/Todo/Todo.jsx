@@ -1,8 +1,14 @@
+import { useDispatch } from 'react-redux';
+import { deleteTodoAction } from 'redux/todoSlice';
+
 import { RiDeleteBinLine } from 'react-icons/ri';
 import { Text } from 'components';
 import { DeleteButton, TodoWrapper } from './Todo.styled';
 
-export const Todo = ({ text, counter, onClick, id }) => {
+export const Todo = ({ text, counter, id }) => {
+  const dispatch = useDispatch();
+
+  const handleDeleteTodo = () => dispatch(deleteTodoAction(id));
   return (
     <>
       <TodoWrapper>
@@ -10,7 +16,7 @@ export const Todo = ({ text, counter, onClick, id }) => {
           TODO #{counter}
         </Text>
         <Text>{text}</Text>
-        <DeleteButton type="button" onClick={() => onClick(id)}>
+        <DeleteButton type="button" onClick={handleDeleteTodo}>
           <RiDeleteBinLine size={24} />
         </DeleteButton>
       </TodoWrapper>
